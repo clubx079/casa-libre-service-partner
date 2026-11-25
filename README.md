@@ -6,3 +6,8 @@ the company profile, how it appears on a property listing, and the founding-part
 - "Pulcro Servicios de Limpieza" is an invented example company; all its data is mock data.
 - Casa-Libre branding: ink #111 / paper #F9F4EE, Space Grotesk + Instrument Serif + IBM Plex Mono, Cuate mascot (embedded).
 - No build step: open `index.html` or serve the folder as static files.
+
+## Hosting
+- Node (AiroStack like the other sites): build `npm run build` (no-op), start `npm start` → `node server.js` on `$PORT` (default 3000). Health check: `/health`.
+- Or Docker: the included `Dockerfile` (node:20-alpine).
+- Responses send `X-Robots-Tag: noindex` (mockup page, kept out of search).

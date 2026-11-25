@@ -1,0 +1,12 @@
+{
+  "name": "casa-libre-service-partner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Casa-Libre service partner profile mockup page (static).",
+  "scripts": {
+    "build": "echo \"static page, nothing to build\"",
+    "start": "node server.js",
+    "dev": "PORT=3170 node server.js"
+  },
+  "engines": { "node": ">=18" }
+}
