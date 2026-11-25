@@ -39,8 +39,8 @@
   .navmid{display:flex;gap:8px}
   .navend{display:flex;align-items:center;gap:12px}
   .lang{display:flex;border:1px solid var(--i30);border-radius:999px;padding:3px;font-size:12px;font-weight:600}
-  .lang b{padding:6px 12px;border-radius:999px;color:var(--i55);font-weight:600}
-  .lang b.on{background:var(--ink);color:var(--paper)}
+  .lang button{padding:6px 12px;border-radius:999px;color:var(--i55);font-weight:600;font:inherit;border:0;background:transparent;cursor:pointer}
+  .lang button.on{background:var(--ink);color:var(--paper)}
   /* crumbs */
   .crumbs{display:flex;gap:8px;align-items:center;padding:22px 0 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--i55)}
   /* profile head */
@@ -126,7 +126,7 @@
   }
   @media (max-width:560px){
     .head{padding:0 18px} .block{padding:20px} .steps{grid-template-columns:1fr} .join ul{grid-template-columns:1fr}
-    .lang{display:none} .gallery{grid-template-columns:1fr 1fr;grid-template-rows:140px 140px 140px} .gallery div:first-child{grid-column:span 2;grid-row:auto}
+    .gallery{grid-template-columns:1fr 1fr;grid-template-rows:140px 140px 140px} .gallery div:first-child{grid-column:span 2;grid-row:auto}
     .stats div{padding:14px 18px} footer{padding:26px 20px}
   }
 </style>
@@ -165,7 +165,7 @@
   <a class="wordmark" href="#">casa-libre<em>.py</em></a>
   <div class="navmid"><a class="pill" href="#">Comprar</a><a class="pill" href="#">Alquilar</a><a class="pill" href="#">Vender</a></div>
   <div class="navend">
-    <div class="lang"><b class="on">ES</b><b>EN</b><b>PT</b></div>
+    <div class="lang" role="group" aria-label="Idioma"><button type="button" data-lang="es" class="on">ES</button><button type="button" data-lang="en">EN</button></div>
     <a class="pill" href="#">Ingresar</a>
     <a class="pill dark" href="#">Ver propiedades</a>
   </div>
@@ -331,5 +331,27 @@
   <div class="links"><a href="#">Comprar</a><a href="#">Alquilar</a><a href="#">Vender</a><a href="#">Socios de servicios</a><a href="#">hola@casa-libre.com</a></div>
   <div class="fine">© 2026 Casa-Libre · Perfil de ejemplo del programa de socios de servicios.</div>
 </footer>
+<script>
+(function () {
+  var EN = {"CASA-LIBRE — SOCIOS DE SERVICIOS": "CASA-LIBRE — SERVICE PARTNERS", "LIMPIEZA": "CLEANING", "MUDANZAS": "MOVING", "MANTENIMIENTO": "MAINTENANCE", "PINTURA": "PAINTING", "FOTOGRAFÍA DE PROPIEDADES": "PROPERTY PHOTOGRAPHY", "CONTACTO DIRECTO POR WHATSAPP": "DIRECT CONTACT ON WHATSAPP", "SIN COMISIÓN": "NO COMMISSION", "Comprar": "Buy", "Alquilar": "Rent", "Vender": "Sell", "Ingresar": "Log in", "Ver propiedades": "Browse listings", "Socios de servicios": "Service partners", "Limpieza": "Cleaning", "Limpieza · Asunción y Gran Asunción": "Cleaning · Asunción and Greater Asunción", "Servicios de Limpieza": "Cleaning Services", "Dejamos tu propiedad lista para mostrar, entregar o volver a alquilar.": "We get your property ready to show, hand over or rent again.", "Socio fundador": "Founding partner", "Responde por WhatsApp": "Replies on WhatsApp", "Presupuesto sin cargo": "Free quote", "Factura legal": "Official invoice", "Compartir": "Share", "Sitio web": "Website", "Escribir por WhatsApp": "Message on WhatsApp", "En el rubro desde": "In business since", "Equipo": "Team", "14 personas": "14 people", "Presupuesto": "Quote", "En el día": "Same day", "Atiende": "Open", "Lun a sáb": "Mon to Sat", "Sobre la empresa": "About the company", "Limpieza pensada para": "Cleaning designed for", "propiedades": "properties", "Somos un equipo especializado en dejar casas y departamentos impecables entre un inquilino y otro, antes de una visita o al terminar una obra. Trabajamos con propietarios, inmobiliarias y administradores de alquileres, con personal propio, productos y equipos incluidos, y fotos del antes y el después de cada trabajo.": "We are a team specialised in leaving houses and apartments spotless between tenants, before a viewing or after construction work. We work with owners, real estate agencies and rental managers, with our own staff, supplies and equipment included, and before-and-after photos of every job.", "Servicios": "Services", "Qué": "What we", "hacemos": "do", "Limpieza antes de mostrar o alquilar": "Cleaning before showing or renting", "Pisos, vidrios, cocina, baños y placares. La propiedad lista para la primera visita.": "Floors, windows, kitchen, bathrooms and closets. The property ready for the first viewing.", "desde": "from", "Limpieza de salida de inquilino": "Tenant move-out cleaning", "Limpieza profunda, retiro de residuos y control final con fotos.": "Deep cleaning, waste removal and a final check with photos.", "Limpieza final de obra": "Post-construction cleaning", "Polvo de obra, restos de pintura y materiales.": "Construction dust, paint and leftover materials.", "Plan mensual para inmobiliarias": "Monthly plan for agencies", "Varias propiedades con un solo contacto, agenda fija y una sola factura.": "Several properties with one contact, a fixed schedule and a single invoice.", "precio": "price", "A convenir": "To agree", "Trabajos realizados": "Our work", "Antes de": "Before", "la visita": "the viewing", "Cómo trabajamos": "How we work", "En tres": "In three", "pasos": "steps", "Nos escribís": "Message us", "Por WhatsApp, con la dirección y el tamaño de la propiedad.": "On WhatsApp, with the address and size of the property.", "Presupuesto en el día": "Same-day quote", "Te pasamos el precio y la fecha disponible.": "We send you the price and the next available date.", "Lista para mostrar": "Ready to show", "Limpiamos y te enviamos fotos del resultado.": "We clean and send you photos of the result.", "Contacto directo": "Direct contact", "¿Necesitás": "Need", "limpieza?": "cleaning?", "Escribile directo a Pulcro. Casa-Libre no cobra comisión por el trabajo.": "Message Pulcro directly. Casa-Libre charges no commission on the job.", "Zonas": "Areas", "Datos": "Details", "Horario": "Hours", "Lun a sáb · 7 a 18 h": "Mon to Sat · 7 am to 6 pm", "Factura": "Invoice", "Sí, factura legal": "Yes, official invoice", "Pagos": "Payments", "Transferencia, efectivo": "Bank transfer, cash", "Fotos del trabajo": "Job photos", "Antes y después": "Before and after", "Base": "Based in", "En cada publicación": "On every listing", "Donde se publica,": "Where properties are listed,", "ahí aparece": "that is where it shows", "Cuando alguien mira o publica una propiedad en Casa-Libre, ve a los socios recomendados de cada servicio.": "When someone views or lists a property on Casa-Libre, they see the recommended partners for each service.", "/ mes": "/ month", "Departamento en alquiler · Villa Morra, Asunción": "Apartment for rent · Villa Morra, Asunción", "2 dormitorios · 2 baños · 85 m² · cochera": "2 bedrooms · 2 bathrooms · 85 m² · parking", "Socios recomendados": "Recommended partners", "Mudanzas": "Moving", "Mantenimiento": "Maintenance", "Pintura": "Painting", "SOCIO FUNDADOR · LIMPIEZA": "FOUNDING PARTNER · CLEANING", "Limpieza antes de mostrar o alquilar y al salir el inquilino. Presupuesto en el día.": "Cleaning before showing or renting and when tenants move out. Same-day quote.", "Ver perfil": "View profile", "¿Tenés una empresa de servicios?": "Do you run a service company?", "Sumá tu empresa a": "Add your company to", "Aparecé en las publicaciones de propiedades": "Appear on property listings", "Te escriben directo a tu WhatsApp": "Clients message your WhatsApp directly", "Sin comisión por los trabajos": "No commission on your jobs", "Reporte mensual de contactos": "Monthly contacts report", "por mes ·": "per month ·", "Quiero mi perfil": "Get my profile", "SIN PERMANENCIA": "NO MINIMUM TERM", "El marketplace inmobiliario de Paraguay · App para iPhone y Android": "Paraguay's real estate marketplace · App for iPhone and Android", "© 2026 Casa-Libre · Perfil de ejemplo del programa de socios de servicios.": "© 2026 Casa-Libre · Example profile from the service partner program."};
+  var TITLE = { es: document.title, en: 'Pulcro Cleaning Services · Service partners · casa-libre.py' };
+  var nodes = [];
+  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: function (n) {
+    var p = n.parentNode && n.parentNode.nodeName;
+    return (p === 'SCRIPT' || p === 'STYLE') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
+  while (w.nextNode()) { var t = w.currentNode.nodeValue.trim(); if (EN[t]) nodes.push({ n: w.currentNode, es: w.currentNode.nodeValue, key: t }); }
+  function setLang(l) {
+    nodes.forEach(function (x) { x.n.nodeValue = l === 'en' ? x.es.replace(x.key, EN[x.key]) : x.es; });
+    document.documentElement.lang = l; document.title = TITLE[l];
+    var img = document.querySelector('.join img'); if (img) img.alt = l === 'en' ? 'Cuate, the Casa-Libre mascot' : 'Cuate, la mascota de Casa-Libre';
+    document.querySelectorAll('.lang button').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang') === l); });
+    try { localStorage.setItem('cl-sp-lang', l); } catch (e) {}
+  }
+  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); }); });
+  var q = (location.search.match(/[?&]lang=(es|en)/) || [])[1], saved = null;
+  try { saved = localStorage.getItem('cl-sp-lang'); } catch (e) {}
+  setLang(q || saved || 'es');
+})();
+</script>
 </body>
 </html>
