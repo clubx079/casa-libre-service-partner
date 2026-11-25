@@ -165,7 +165,7 @@
   <a class="wordmark" href="#">casa-libre<em>.py</em></a>
   <div class="navmid"><a class="pill" href="#">Comprar</a><a class="pill" href="#">Alquilar</a><a class="pill" href="#">Vender</a></div>
   <div class="navend">
-    <div class="lang" role="group" aria-label="Idioma"><button type="button" data-lang="es" class="on">ES</button><button type="button" data-lang="en">EN</button></div>
+    <div class="lang" role="group" aria-label="Idioma"><button type="button" data-lang="es" class="on" onclick="window.clSetLang&&clSetLang('es')">ES</button><button type="button" data-lang="en" onclick="window.clSetLang&&clSetLang('en')">EN</button></div>
     <a class="pill" href="#">Ingresar</a>
     <a class="pill dark" href="#">Ver propiedades</a>
   </div>
@@ -347,7 +347,8 @@
     document.querySelectorAll('.lang button').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang') === l); });
     try { localStorage.setItem('cl-sp-lang', l); } catch (e) {}
   }
-  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); }); });
+  document.addEventListener('click', function (e) { var b = e.target && e.target.closest && e.target.closest('[data-lang]'); if (!b) return; e.preventDefault(); setLang(b.getAttribute('data-lang')); });
+  window.clSetLang = setLang;
   var q = (location.search.match(/[?&]lang=(es|en)/) || [])[1], saved = null;
   try { saved = localStorage.getItem('cl-sp-lang'); } catch (e) {}
   setLang(q || saved || 'es');
